@@ -44,4 +44,3 @@ set5 = set1 - set2
 
 set6 = set1 ^ set2
 # print(set6)   # Saída: {6, 7}
-
