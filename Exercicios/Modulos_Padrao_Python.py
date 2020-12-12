@@ -23,3 +23,35 @@ ele se torna "Modulos_Padrao_Python" e o arquivo de origem será o "__main__".
 
 Vale para todos os módulos.
 """
+
+print()
+
+"""
+*************************************************************************************
+Os módulos e pacotes devem ser importados levando em conta o arquivo de origem(ponto de entrada).
+Ou seja: Se o __main__ esta em um diretorio, todos os outros modulos tem que fazer a
+importanção levando em conta o caminho do main,e não do módulo.
+"""
+
+"""
+Para ler modulos/pacotes que estão em um caminho superior ao do __main__ atual
+Pode-se usar este "hack" para incluir a pasta onde os módulos superiroes estão no path
+"""
+try:
+    import sys
+    import os
+
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../'   # Inclui a pasta anterior ao diretorio atual ao path
+            )
+        )
+    )
+except ImportError:
+    raise
+
+# ********************
+import sys
+print(sys.path)   # Mostra os caminhos dos quais o python esta varrendo para encontrar os módulos
