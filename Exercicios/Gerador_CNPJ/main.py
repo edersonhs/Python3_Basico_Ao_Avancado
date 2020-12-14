@@ -23,9 +23,7 @@ Recap.
 """
 import cnpj
 
-cnpj1 = '04.252.011/0001-10'
+new_cnpj = cnpj.gera()
+new_cnpj = cnpj.formata(new_cnpj)
 
-if cnpj.valida(cnpj1):
-    print(f'{cnpj1} é válido')
-else:
-    print(f'{cnpj1} é inválido')
+print(new_cnpj)
