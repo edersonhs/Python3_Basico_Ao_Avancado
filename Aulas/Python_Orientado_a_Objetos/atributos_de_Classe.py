@@ -9,7 +9,7 @@ a1 = A()
 a2 = A()
 
 
-# A.vc = 321   # Usando a classe para alterar o valor da instancia. (O valor de todas as outras instancia será redefinuido tanbém)
+# A.vc = 321   # Usando a classe para alterar o valor da instancia. (O valor de todas as outras instancia será redefinido tanbém, caso o atributo "vc" já não exista na instancia)
 
 a1.vc = 123   # Criando um atributo "vc" com o valor 123 diretamente na instancia
 """
