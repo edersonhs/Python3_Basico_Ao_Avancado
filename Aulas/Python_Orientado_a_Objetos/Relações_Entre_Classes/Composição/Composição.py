@@ -2,7 +2,7 @@
 Composição - È a relação mais forte entre classes
 
 Neste caso uma classe será a "dona" de objetos de outras classes. Ou seja, se a classe principal for apagada,
-todos os objetos que classe principal utilizou serão apagados com ela
+todos os objetos que classe principal utilizou serão apagados com ela.
 """
 from classes import *
 
