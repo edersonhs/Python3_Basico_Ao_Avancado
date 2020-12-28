@@ -5,7 +5,8 @@ map recebe uma função como primeiro argumento, no exempço usamos uma função
 
 * map não retorna uma lista pronta, e sim um iterador.
 """
-nova_lista = map(lambda x: x * 2, lista)   # Retornara uma nova lista com os valores multiplicados por 2
+nova_lista = map(
+    lambda x: x * 2, lista)   # Retornara uma nova lista com os valores multiplicados por 2
 
 print(lista)
 print(list(nova_lista))   # convertendo o iterador do map para uma lista
@@ -22,17 +23,22 @@ for preco in precos:
 # ----------------------------------------------------------------------------------------------------------------
 
 print('\nPreços com +5%')
+
+
 def aumenta_preco(p):
-    p['preco'] = round(p['preco'] * 1.05, 2)   # Arredondando para no maximo duas casas decimais
+    # Arredondando para no maximo duas casas decimais
+    p['preco'] = round(p['preco'] * 1.05, 2)
     return p
 
-novos_produtos = map(aumenta_preco, produtos)   # Passa cada elemento de produtos para a função aumenta preco
+
+# Passa cada elemento de produtos para a função aumenta preco
+novos_produtos = map(aumenta_preco, produtos)
 
 for prod in novos_produtos:
     print(prod)
 
 # ----------------------------------------------------------------------------------------------------------------
-print('\nApenas os nomes das pessoas do dicionario de pessoas:') 
+print('\nApenas os nomes das pessoas do dicionario de pessoas:')
 
 nomes = map(lambda p: p['nome'], pessoas)
 
@@ -40,11 +46,14 @@ for nome in nomes:
     print(nome)
 
 # ----------------------------------------------------------------------------------------------------------------
-print('\nAumentando em 20% a idade das pessoas:') 
+print('\nAumentando em 20% a idade das pessoas:')
+
 
 def aumenta_idade(p):
-    p['nova_idade'] = round(p['idade'] * 1.20)   # Aumentando em 20% a idade de cada pessoa do dicionario e arredondando
+    # Aumentando em 20% a idade de cada pessoa do dicionario e arredondando
+    p['nova_idade'] = round(p['idade'] * 1.20)
     return p
+
 
 idades = map(aumenta_idade, pessoas)
 

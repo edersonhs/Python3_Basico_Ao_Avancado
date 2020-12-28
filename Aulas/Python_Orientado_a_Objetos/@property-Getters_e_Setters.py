@@ -4,14 +4,16 @@ Setter - Configurar um valor
 
 Serve como uma "proteção" para o atributo
 """
+
+
 class Produto:
     def __init__(self, nome, preco):
         self.nome = nome
         self.preco = preco
-    
+
     def desconto(self, percentual):
         self.preco = self.preco - (self.preco * (percentual / 100))
-    
+
     # EX1 - PRECO
     # Getter
     @property   # Decorador de propriedade
@@ -27,7 +29,7 @@ class Produto:
         if isinstance(valor, str):   # retorna True se o valor for uma instancia de string
             valor = float(valor.replace('R$', ''))
         self._preco = valor   # retorna o _preco para o self.preco do __init__
-    
+
     # EX2 - NOME
     # Getter
     @property
