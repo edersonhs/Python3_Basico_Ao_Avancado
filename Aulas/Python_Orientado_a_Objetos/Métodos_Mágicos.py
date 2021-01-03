@@ -101,7 +101,7 @@ print(a.nome)   # Luiz Otávio
 a.haha()   # Fala OI
 
 # Exemplo do __call__:
-a(1, 2, 3, 4, 5, nome='Luiz')  # instancia a funciona como uma função
+a(1, 2, 3, 4, 5, nome='Luiz')  # a instancia "a" funciona como uma função
 # Saída:   (1, 2, 3, 4, 5)
 #          {'nome': 'Luiz'}
 
