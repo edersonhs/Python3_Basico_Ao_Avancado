@@ -76,3 +76,19 @@ b = B()
 print(b.attr_classe)
 
 c = C()
+
+"""
+A type é uma metaclasse também utilizada para criar classes.
+
+Exemplo de criação de classe manualmente com o Type:
+
+A = type(
+    'A',   # Nome da classe
+    (),   # De quem a classe será herdada
+    {'attr': 'Olá mundo!'}   # Atributos da classe
+)
+
+a = A()
+print(a.attr)   # Olá mundo!
+print(type(a))   # <class '__main__.A'>
+"""
