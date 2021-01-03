@@ -1,5 +1,5 @@
 """
-Modificam o comportamento da classe.
+Métodos mágicos modificam o comportamento da classe.
 
 A Guide to Python's Magic Methods:
 https://rszalski.github.io/magicmethods/
@@ -113,4 +113,4 @@ print(a.nome)   # Douglas
 print(a)   # Essa é a classe A criada para testes!
 
 # Exemplo do __len__:
-print(len(a))
+print(len(a))   # 55
