@@ -11,42 +11,63 @@ class Ip:
     def cidr(self):
         return self._cidr
 
-    def validator(self, ip):
-        for group in self.ip:
-            if not group.isdigit() or len(group) > 3:
+    def validator(self, model=1):
+        if model == 1:
+            for group in self.ip:
+                if not group.isdigit() or len(group) > 3:
+                    return False
+                return True
+        else:   # CIDR
+            if int(self.cidr) > 32 or not self.cidr.isdigit():
                 return False
-        return True
+            return True
 
-    def details(self):
-        binary_ip = BinaryIp(self.ip, self.cidr).conversor(self.ip)
-        print(binary_ip)
-
-
-class BinaryIp(Ip):
-    def __init__(self, ip, cidr):
-        self._ip = ip
-        self._cidr = cidr
-
-    def conversor(self, ip):
+    def binary_converter(self, model=1):
         values = (128, 64, 32, 16, 8, 4, 2, 1)
         binary_ip = []
 
-        if self.validator(ip):
-            for group in ip:
-                binary = []
-                count = 0
+        if model == 1:   # IP
+            if self.validator():
+                for group in self.ip:
+                    binary = []
+                    count = 0
 
-                for number in values:
-                    if number <= int(group) and (count + number) <= int(group):
-                        binary.append(1)
-                        count += number
-                    else:
-                        binary.append(0)
-                binary_ip.append(binary[:])
+                    for number in values:
+                        if number <= int(group) and (count+number) <= int(group):
+                            binary.append(1)
+                            count += number
+                        else:
+                            binary.append(0)
+                    binary_ip.append(binary[:])
 
-            return binary_ip
+                return binary_ip
+        else:   # CIDR
+            if self.validator(2):
+                binary_cidr = []
+                for count in range(int(self.cidr)):
+                    binary_cidr.append(1)
+
+                while len(binary_cidr) < 32:
+                    binary_cidr.append(0)
+
+            return binary_cidr
+
+    def range_ip(self):
+        aux = ''
+        for number in self.binary_converter(2):
+            aux += str(number)
+        valid_ip = (2 ** aux.count('0')) - 2
+        return valid_ip
+
+    def details(self):
+        print(f'IP/Rede: '
+              f'{self.ip[0]}.{self.ip[1]}.{self.ip[2]}.{self.ip[3]}/{self.cidr}')
+        print(f'Prefixo CIDR: /{self.cidr}')
+        print(f'Total de IPs: {self.range_ip() + 2}')
+        print(f'Total de IPs para uso: {self.range_ip()}')
+        # print(f'IP Binario: {self.binary_converter()}')
+        # print(f'Representação binaria da rede: {self.binary_converter(2)}')
 
 
 ip = Ip('10.20.12.45', '26')
-# print(ip.ip)
 ip.details()
