@@ -59,10 +59,37 @@ class Ip:
         valid_ip = (2 ** aux.count('0')) - 2
         return valid_ip
 
+    def netmask(self):
+        values = (128, 64, 32, 16, 8, 4, 2, 1)
+        binary_netmask = []
+        netmask = []
+        aux = []
+        count = 0
+
+        # Agrupando
+        for element in self.binary_converter(2):
+            if count < 8:
+                aux.append(element)
+                count += 1
+            if count == 8:
+                binary_netmask.append(aux[:])
+                aux.clear()
+                count = 0
+
+        for group in binary_netmask:
+            mask = 0
+            for i in range(8):
+                if group[i] == 1:
+                    mask += values[i]
+            netmask.append([mask])
+
+        return netmask
+
     def details(self):
         print(f'IP/Rede: '
               f'{self.ip[0]}.{self.ip[1]}.{self.ip[2]}.{self.ip[3]}/{self.cidr}')
         print(f'Prefixo CIDR: /{self.cidr}')
+        print(f'Mascara de sub-rede: {self.netmask()}')
         print(f'Total de IPs: {self.range_ip() + 2}')
         print(f'Total de IPs para uso: {self.range_ip()}')
         # print(f'IP Binario: {self.binary_converter()}')
