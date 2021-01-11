@@ -52,6 +52,19 @@ class Ip:
 
             return binary_cidr
 
+    def decimal_converter(self, binary_address):
+        values = (128, 64, 32, 16, 8, 4, 2, 1)
+        decimal_address = []
+
+        for group in binary_address:
+            address_group = 0
+            for i in range(8):
+                if group[i] == 1:
+                    address_group += values[i]
+            decimal_address.append(str(address_group))
+
+        return decimal_address
+
     def range_ip(self):
         aux = ''
         for number in self.binary_converter(2):
@@ -81,19 +94,57 @@ class Ip:
             for i in range(8):
                 if group[i] == 1:
                     mask += values[i]
-            netmask.append([mask])
+            netmask.append(str(mask))
 
         return netmask
 
+    def broadcast(self):
+        binary_ip = self.binary_converter()
+        broadcast = []
+        aux = []
+        count = 0
+
+        for group in binary_ip:
+            for number in group:
+                if count < int(self.cidr):
+                    aux.append(number)
+                    count += 1
+                else:
+                    aux.append(1)
+            broadcast.append(aux[:])
+            aux.clear()
+
+        return broadcast
+
+    def network_ip(self):
+        binary_ip = self.binary_converter()
+        broadcast = []
+        aux = []
+        count = 0
+
+        for group in binary_ip:
+            for number in group:
+                if count < int(self.cidr):
+                    aux.append(number)
+                    count += 1
+                else:
+                    aux.append(0)
+            broadcast.append(aux[:])
+            aux.clear()
+
+        return broadcast
+
     def details(self):
-        print(f'IP/Rede: '
-              f'{self.ip[0]}.{self.ip[1]}.{self.ip[2]}.{self.ip[3]}/{self.cidr}')
+        print(f'IP/Rede: {".".join(self.ip)}/{self.cidr}')
         print(f'Prefixo CIDR: /{self.cidr}')
-        print(f'Mascara de sub-rede: {self.netmask()}')
+        # print(f'Mascara de sub-rede: {self.netmask()}')
+        print(f'Mascara de sub-rede: {".".join(self.netmask())}')
         print(f'Total de IPs: {self.range_ip() + 2}')
         print(f'Total de IPs para uso: {self.range_ip()}')
-        # print(f'IP Binario: {self.binary_converter()}')
-        # print(f'Representação binaria da rede: {self.binary_converter(2)}')
+        print(
+            f'IP de Broadcast: {".".join(self.decimal_converter(self.broadcast()))}')
+        print(
+            f'IP da Rede: {".".join(self.decimal_converter(self.network_ip()))}')
 
 
 ip = Ip('10.20.12.45', '26')
