@@ -137,14 +137,13 @@ class Ip:
     def details(self):
         print(f'IP/Rede: {".".join(self.ip)}/{self.cidr}')
         print(f'Prefixo CIDR: /{self.cidr}')
-        # print(f'Mascara de sub-rede: {self.netmask()}')
         print(f'Mascara de sub-rede: {".".join(self.netmask())}')
-        print(f'Total de IPs: {self.range_ip() + 2}')
-        print(f'Total de IPs para uso: {self.range_ip()}')
-        print(
-            f'IP de Broadcast: {".".join(self.decimal_converter(self.broadcast()))}')
         print(
             f'IP da Rede: {".".join(self.decimal_converter(self.network_ip()))}')
+        print(
+            f'IP de Broadcast: {".".join(self.decimal_converter(self.broadcast()))}')
+        print(f'Total de IPs: {self.range_ip() + 2}')
+        print(f'Total de IPs para uso: {self.range_ip()}')
 
 
 ip = Ip('10.20.12.45', '26')
