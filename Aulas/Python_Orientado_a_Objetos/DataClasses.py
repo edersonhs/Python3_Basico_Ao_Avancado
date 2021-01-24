@@ -10,7 +10,7 @@ Adicionado na versão 3.7 do Python.
 Leia a documentação: https://docs.python.org/pt-br/3/library/dataclasses.html
 """
 from dataclasses import dataclass
-from dataclasses import field   # Para ocultar parametros do repr
+from dataclasses import field, fields   # Para ocultar parametros do repr
 from dataclasses import asdict, astuple   # Converter a classe para dict/tuple
 
 # @dataclass(eq=False, repr=False, order=False, frozen=False, init=False)
@@ -61,3 +61,5 @@ print()
 
 print(asdict(p1))   # Convertendo p1 em um dicionario
 print(astuple(p1))   # Convertendo p1 em uma tupla
+
+print(fields(p1))   # Mostra todos os fields da instancia
