@@ -7,3 +7,5 @@ Exercicios/validador_cnpj/__pycache__/cnpj.cpython-39.pyc
 *.pyc
 *.pyc
 Exercicios/validador_cnpj/__pycache__/cnpj.cpython-39.pyc
+.vscode/extensions.json
+.vscode/settings.json
