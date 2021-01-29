@@ -1,3 +1,6 @@
+"""
+Documentação: https://docs.python.org/3/library/datetime.html
+"""
 from datetime import datetime, timedelta
 
 data = datetime.strptime('20/04/1987 20:00:00', '%d/%m/%Y %H:%M:%S')
