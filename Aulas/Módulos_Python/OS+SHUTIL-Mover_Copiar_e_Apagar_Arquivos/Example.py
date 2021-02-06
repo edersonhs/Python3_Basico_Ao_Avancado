@@ -32,6 +32,7 @@ for root, dir, files in os.walk(caminho_original):
         shutil.move(old_file_path, new_file_path)
         print(f'Arquivo {file} movido com sucesso!')
 
+        # os.remove(file_path)   # Para excluir
         """
         shutil.move também serve para renomear arquivos, desde que o caminho
         original esteja correto pode-se inserir o novo nome desejado no
