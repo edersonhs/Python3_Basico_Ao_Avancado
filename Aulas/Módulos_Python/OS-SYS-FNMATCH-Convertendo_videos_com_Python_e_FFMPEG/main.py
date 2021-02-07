@@ -10,6 +10,8 @@ ffmpeg -i "ENTRADA" -i "LEGENDA" -c:v libx264 -crf 23 - preset ultrafast
 
 Documentação ffmpeg - https://ffmpeg.org/documentation.html
 Download ffmpeg - https://ffmpeg.org/download.html
+
+Baixar o ffmpeg e deixar o .exe em ffmpeg/ffmpeg.exe
 """
 import os
 import fnmatch   # verificar a extensão dos arquivos
