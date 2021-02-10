@@ -1,0 +1,26 @@
+Tipos, de JSON para python e vice-versa.
+
+DUMPS / DUMP
+#######################
+Python          JSON
+-----------------------
+dict            object
+list, tuple     array
+str             string
+int, float      number
+True            True
+FALSE           False
+None            null
+
+LOADS / LOAD
+#######################
+JSON            Python
+-----------------------
+object          dict
+array           list
+string          str
+number (int)    int
+number (real)   float
+True            True
+false           False
+null            None
