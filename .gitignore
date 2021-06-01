@@ -15,3 +15,10 @@ Aulas/Módulos_Python/OS-SYS-FNMATCH-Convertendo_videos_com_Python_e_FFMPEG/ffmp
 .idea/vcs.xml
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/inspectionProfiles/Project_Default.xml
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
