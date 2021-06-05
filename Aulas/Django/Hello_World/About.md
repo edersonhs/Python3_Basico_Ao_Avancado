@@ -26,11 +26,11 @@ python manage.py runserver
 
 ##### Ao executar o comando acima, uma série de arquivos é criada, estes arquivos são:
 
-**Diretório migrations:** Diretório responsável por armazenar os arquivos de migração para o banco de dados de uma aplicação Django.
-**admin.py:** Arquivo responsável por definir os models a serem utilizados no módulo administrativo do Django.
-**apps.py:** Arquivo responsável pela configuração da app do projeto Django.
-**models.py:** Arquivo responsável por definir os modelos da aplicação. Basicamente, um modelo é a representação das tabelas a serem criadas no banco de dados.
-**tests.py:** Arquivo responsável por definir as regras de testes da aplicação.
-**views.py:** Arquivo responsável por definir as regras de negócio do app.
+* **Diretório migrations:** Diretório responsável por armazenar os arquivos de migração para o banco de dados de uma aplicação Django.
+* **admin.py:** Arquivo responsável por definir os models a serem utilizados no módulo administrativo do Django.
+* **apps.py:** Arquivo responsável pela configuração da app do projeto Django.
+* **models.py:** Arquivo responsável por definir os modelos da aplicação. Basicamente, um modelo é a representação das tabelas a serem criadas no banco de dados.
+* **tests.py:** Arquivo responsável por definir as regras de testes da aplicação.
+* **views.py:** Arquivo responsável por definir as regras de negócio do app.
 
-Ao criar a aplicação, precisamos registrá-la no arquivo settings.py do projeto. Isso fará com que o projeto Django saiba que essa app faz parte do projeto e que ele pode gerenciá-la. Para fazer isso, no arquivo settings.py, adicionamos o nome da app.apps.nome-da-classe-do-app.py-do-app no array INSTALLED_APPS.
+Ao criar a aplicação, precisamos registrá-la no arquivo settings.py do projeto. Isso fará com que o projeto Django saiba que essa app faz parte do projeto e que ele pode gerenciá-la. Para fazer isso, no arquivo settings.py, adicionamos o nome_da_app.apps.nome-da-classe-do-app.py-do-app no array INSTALLED_APPS.
